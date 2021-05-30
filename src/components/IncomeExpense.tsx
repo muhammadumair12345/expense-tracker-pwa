@@ -9,13 +9,13 @@ const IncomeExpense=()=>{
             <div className='income'>
                 <h3>Income</h3>
                 <p>  
-                   0000
+                   $0.00
                 </p>
             </div>
             <div className='expense'>
                 <h3>Expense</h3>
                 <p>
-                   0000
+                   $0.00
                 </p>
             </div>
         </div>

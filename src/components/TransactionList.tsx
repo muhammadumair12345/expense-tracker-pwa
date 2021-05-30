@@ -31,9 +31,9 @@ const TransactionList=()=>{
             <div className="transaction-list">
                 <ul className="list" style={toggleList} >
                     <li className="list-item-history" >
-                        <span className="description">23223</span>
+                        <span className="description">Mobile</span>
                         <span className="amount">
-                            0.00
+                            $0.00
                         </span>
                     </li>
                     <li className="list-item-actions">
