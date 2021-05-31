@@ -6,6 +6,7 @@ import IncomeExpense from './IncomeExpense';
 import AddTransaction from './AddTransaction';
 import TransactionList from './TransactionList';
 import TransactionGraph from './TransactionGraph';
+import { TransactionProvider } from '../context/TransactionContext';
 
 
 const Container=()=>{
@@ -13,11 +14,13 @@ const Container=()=>{
     return(
         <div className='container'>
             <Header/>
-            <Balance/>
-            <IncomeExpense/>
-            <TransactionList/>
-            <TransactionGraph/>
-            <AddTransaction/>
+            <TransactionProvider>
+                <Balance/>
+                <IncomeExpense/>
+                <TransactionList/>
+                <TransactionGraph/>
+                <AddTransaction/>
+            </TransactionProvider>
         </div>
     );
 }

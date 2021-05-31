@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext,useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash,faPen,faArrowAltCircleDown,faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
-
-
+import {TransactionContext} from '../context/TransactionContext';
 
 const TransactionList=()=>{
+    const {transactions,deleteTransaction,update,animateNumber}=useContext<InitialState2>(TransactionContext);
     const [arrow,setArrow]=useState(faArrowAltCircleDown);
     const [toggleList,setToggleList]=useState({display:'none'});
 
@@ -16,6 +16,15 @@ const TransactionList=()=>{
         setToggleList({display:'none'});
 
        arrow===faArrowAltCircleUp? setArrow(faArrowAltCircleDown):setArrow(faArrowAltCircleUp);
+    }
+
+
+    function deleteList(id:number){
+        deleteTransaction(id);
+    }
+
+    function updateList(id:number){
+        update(id);
     }
 
     return(
@@ -29,18 +38,17 @@ const TransactionList=()=>{
                 </div>
             </div>
             <div className="transaction-list">
-                <ul className="list" style={toggleList} >
-                    <li className="list-item-history" >
-                        <span className="description">Mobile</span>
-                        <span className="amount">
-                            $0.00
-                        </span>
+                {transactions.map((transaction:Transaction)=>(
+                <ul className="list" style={toggleList} key={transaction.id}>
+                    <li className="list-item-history" style={{color:transaction.amount<0?'red':''}}>
+                        <span className="description">{transaction.description}</span>
+                        <span className="amount">{animateNumber(transaction.amount)}</span>
                     </li>
                     <li className="list-item-actions">
-                        <span  className="delete"><FontAwesomeIcon icon={faTrash}/></span>
-                        <span  className="update"><FontAwesomeIcon icon={faPen}/></span>
+                        <span onClick={()=>deleteList(transaction.id)} className="delete"><FontAwesomeIcon icon={faTrash}/></span>
+                        <span onClick={()=>updateList(transaction.id)} className="update"><FontAwesomeIcon icon={faPen}/></span>
                     </li>
-                </ul>
+                </ul>))} 
             </div>
         </div>
     );

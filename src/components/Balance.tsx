@@ -1,13 +1,15 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import '../App.css';
+import {TransactionContext} from '../context/TransactionContext';
 
 const Balance=()=>{
+    const {totalBalance,animateNumber}=useContext<InitialState2>(TransactionContext);
 
     return(
         <div className='balance'>
             <h2>Balance</h2>
             <p>
-                $0.00
+                {animateNumber(totalBalance)}
             </p>
         </div>
     );

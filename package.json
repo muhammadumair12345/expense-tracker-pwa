@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
+    "@types/numeral": "^2.0.1",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "animated-number-react": "^0.1.2",
@@ -59,5 +60,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/chart.js": "^2.9.32"
   }
 }
