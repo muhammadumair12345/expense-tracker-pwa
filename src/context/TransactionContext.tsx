@@ -28,9 +28,6 @@ export const TransactionProvider:React.FC=({children})=>{
     const expense:number=(amounts.filter(amount=>amount<0).reduce((total,amount)=>(total+=amount),0)*-1);
     const totalBalance:number=amounts.reduce((total,amount)=>(total+=amount),0);
 
-    console.log(ActionType.AddTransaction)
-
-
     function addTransaction(transaction:Transaction){
         setBoolUpdater(false);
         dispatch(
