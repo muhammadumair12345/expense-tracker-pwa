@@ -27,7 +27,7 @@ interface InitialState2{
     animateNumber:(number:number)=>any,
 }
 
-type State=InitialState|InitialState2;
+type State=InitialState1|InitialState2;
 
 enum ActionType {
     AddTransaction = 'ADD_TRANSACTION',
